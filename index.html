@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Planning a compact DeskPi homelab for four computers, with a Netgear switch, a Comet X KVM and a Synology NAS.">
+  <title>Four computers, one rack | DeskPi Homelab</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main>
+    <article>
+      <header class="intro">
+        <p class="eyebrow">DeskPi Homelab</p>
+        <h1>Four computers,<br>one rack</h1>
+        <p class="dek">Planning a compact homelab around the machines I already own.</p>
+      </header>
+
+      <div class="body">
+        <p>I wanted a permanent home for four machines I already had: a 2020 M1 Mac mini, a Beelink EQR6 running Linux, a Windows Intel NUC and a Raspberry Pi 3. I also had a Synology DS920+ for storage. The idea was to bring them together in a rack I could manage from my laptop, with one monitor available when I needed to work directly at the rack.</p>
+
+        <p>I chose the <a href="https://wiki.deskpi.com/rackmate/rackmate-t2/">DeskPi RackMate T2</a>, a compact 10-inch, 12U rack. My plan uses five shelves: one for each computer and one for the Netgear switch. The Windows NUC turns sideways to fit, the Pi keeps its existing case, and the Synology sits beside the rack. I put the switch and the Comet X near the top of the layout so their connections are easy to reach.</p>
+
+        <figure aria-labelledby="layout-caption">
+          <figcaption id="layout-caption">Proposed rack layout <span>Top to bottom</span></figcaption>
+          <ol class="rack" aria-label="Rack positions">
+            <li><span>U12</span>Spare</li>
+            <li><span>U11</span>Comet X KVM</li>
+            <li><span>U9–10</span>Netgear GS108 switch</li>
+            <li><span>U7–8</span>Raspberry Pi 3</li>
+            <li><span>U5–6</span>Windows Intel NUC</li>
+            <li><span>U3–4</span>Beelink EQR6</li>
+            <li><span>U1–2</span>Mac mini M1</li>
+          </ol>
+          <p class="aside">The Synology DS920+ sits beside the rack.</p>
+        </figure>
+
+        <h2>One uplink to the home network</h2>
+        <p>I decided to reuse my eight-port <strong>Netgear GS108</strong>. A 2 m Ethernet cable runs from a LAN port on my home router to port 1 on the switch. The four computers, the Synology and the Comet each get their own Ethernet connection. That fills seven ports and leaves one spare. The router still hands out IP addresses, so the rack joins the same home network as my laptop and phone.</p>
+        <p>I also priced out a larger UniFi build with 10GbE switching, three Wi-Fi access points, four cameras and a new NAS. That was a useful way to see what a whole-home upgrade would involve. For this build, the existing switch let me plan the rack around equipment I already owned.</p>
+
+        <h2>One monitor for all four computers</h2>
+        <p>The <a href="https://docs.gl-inet.com/kvm/en/user_guide/gl-rm4pe/quick_setup_guide/">GL.iNet Comet X</a> makes this feel like one setup. Each computer gets a pair of cables to the same numbered channel. HDMI sends the picture, and USB carries keyboard and mouse input. The Comet’s single HDMI output goes to a monitor and shows whichever computer I select. From my laptop, I can use the Comet’s browser console to do the same thing.</p>
+        <p>The Comet gets its network connection from port 7 on the Netgear. Since the switch doesn’t provide Power over Ethernet, an Anker USB-C adapter powers the Comet separately.</p>
+        <p>That gives me three cable routes when viewed from the back: <strong>power on the left, Ethernet on the right, and the HDMI and USB pairs down the middle</strong>. The power strip and adapters sit outside the rack. Reusable straps keep the bundles in place, and labels at both ends let me trace a cable without pulling the bundle apart. I’ve also planned enough slack to slide a computer forward when I need to reach its ports.</p>
+
+        <h2>What I want to run</h2>
+        <p>The EQR6 is my first candidate for a <strong>K3s Kubernetes lab</strong>. I can start with one Linux machine and use it to learn how to deploy and manage a few services. The M1 Mac can run <strong>Ollama</strong> for local AI experiments, with a browser chat interface hosted on the EQR6. The Pi 3 has a lighter job in mind as a Pi-hole server, and the Synology gives me somewhere to put shared files and backups.</p>
+        <p>The final shopping basket came to <strong>£246.18</strong> for the rack, three extra shelves, wiring, power and cable management supplies. The work so far has been planning the layout, checking the connections and putting that list together. My first test once it’s assembled will be to open the Comet from my laptop, switch through all four computers and make sure I can see and control each one.</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
